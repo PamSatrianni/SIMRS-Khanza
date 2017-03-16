@@ -37,6 +37,7 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
     private ResultSet rs,rs2;
     private Jurnal jur=new Jurnal();
     private Connection koneksi=koneksiDB.condb();
+    private riwayatobat Trackobat=new riwayatobat();
     private int i=0,no=1;private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     public  DlgPasien pasien=new DlgPasien(null,false);
     public  DlgCariPetugas petugas=new DlgCariPetugas(null,false);
@@ -55,7 +56,7 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
         initComponents();
 
         Object[] row={"No.Nota","Tanggal","Petugas","Pasien","Keterangan","Jns.Jual","PPN","Barang","Satuan",
-                    "Harga(Rp)","Jumlah","Subtotal(Rp)","Ptg(%)","Potongan(Rp)","Tambahan(Rp)","Total(Rp)"};
+                    "Harga(Rp)","Jml","Subtotal(Rp)","Ptg(%)","Potongan(Rp)","Tambahan(Rp)","Total(Rp)"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -69,35 +70,35 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
             if(i==0){
                 column.setPreferredWidth(90);
             }else if(i==1){
-                column.setPreferredWidth(90);
+                column.setPreferredWidth(80);
             }else if(i==2){
                 column.setPreferredWidth(100);
             }else if(i==3){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(150);
             }else if(i==4){
                 column.setPreferredWidth(100);
             }else if(i==5){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(75);
             }else if(i==6){
-                column.setPreferredWidth(100);
-            }else if(i==7){
-                column.setPreferredWidth(200);
-            }else if(i==8){
-                column.setPreferredWidth(50);
-            }else if(i==9){
-                column.setPreferredWidth(100);
-            }else if(i==10){
                 column.setPreferredWidth(70);
-            }else if(i==11){
-                column.setPreferredWidth(100);
-            }else if(i==12){
+            }else if(i==7){
+                column.setPreferredWidth(180);
+            }else if(i==8){
                 column.setPreferredWidth(60);
+            }else if(i==9){
+                column.setPreferredWidth(80);
+            }else if(i==10){
+                column.setPreferredWidth(28);
+            }else if(i==11){
+                column.setPreferredWidth(80);
+            }else if(i==12){
+                column.setPreferredWidth(44);
             }else if(i==13){
-                column.setPreferredWidth(110);
+                column.setPreferredWidth(80);
             }else if(i==14){
-                column.setPreferredWidth(110);
+                column.setPreferredWidth(80);
             }else if(i==15){
-                column.setPreferredWidth(110);
+                column.setPreferredWidth(90);
             }
         }
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());
@@ -311,7 +312,7 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
-        ppCetakNota.setBackground(new java.awt.Color(242, 242, 242));
+        ppCetakNota.setBackground(new java.awt.Color(255, 255, 255));
         ppCetakNota.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppCetakNota.setForeground(new java.awt.Color(60, 80, 50));
         ppCetakNota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -328,7 +329,7 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
         });
         jPopupMenu1.add(ppCetakNota);
 
-        ppHapus.setBackground(new java.awt.Color(242, 242, 242));
+        ppHapus.setBackground(new java.awt.Color(255, 255, 255));
         ppHapus.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppHapus.setForeground(new java.awt.Color(60, 80, 50));
         ppHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -345,7 +346,7 @@ public class DlgCariPenjualan extends javax.swing.JDialog {
         });
         jPopupMenu1.add(ppHapus);
 
-        ppVerif.setBackground(new java.awt.Color(242, 242, 242));
+        ppVerif.setBackground(new java.awt.Color(255, 255, 255));
         ppVerif.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppVerif.setForeground(new java.awt.Color(60, 80, 50));
         ppVerif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -976,7 +977,8 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                     psdetailjual.setString(1,rs.getString(1));                
                     rs2=psdetailjual.executeQuery();
                     while(rs2.next()){
-                        Sequel.menyimpan("gudangbarang","'"+rs2.getString("kode_brng") +"','"+rs.getString("kd_bangsal") +"','"+rs2.getString("jumlah") +"'", 
+                        Trackobat.catatRiwayat(rs2.getString("kode_brng"),rs2.getDouble("jumlah"),0,"Penjualan",var.getkode(),rs.getString("kd_bangsal"),"Hapus");
+                        Sequel.menyimpan("gudangbarang","'"+rs2.getString("kode_brng") +"','"+rs.getString("kd_bangsal")+"','"+rs2.getString("jumlah") +"'", 
                                                "stok=stok+'"+rs2.getString("jumlah") +"'","kode_brng='"+rs2.getString("kode_brng")+"' and kd_bangsal='"+rs.getString("kd_bangsal") +"'");
                     }
                 } catch (Exception e) {
@@ -1037,6 +1039,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                             psdetailjual.setString(1,rs.getString(1));                
                             rs2=psdetailjual.executeQuery();
                             while(rs2.next()){
+                                Trackobat.catatRiwayat(rs2.getString("kode_brng"),0,rs2.getDouble("jumlah") ,"Penjualan",var.getkode(),rs.getString("kd_bangsal"),"Simpan");
                                 Sequel.menyimpan("gudangbarang","'"+rs2.getString("kode_brng") +"','"+rs.getString("kd_bangsal") +"','"+rs2.getString("jumlah") +"'", 
                                                        "stok=stok-'"+rs2.getString("jumlah") +"'","kode_brng='"+rs2.getString("kode_brng")+"' and kd_bangsal='"+rs.getString("kd_bangsal") +"'");
                             }
@@ -1260,6 +1263,10 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     public void isCek(){
         BtnPrint.setEnabled(var.getpenjualan_obat());
         ppCetakNota.setEnabled(var.getpenjualan_obat());
-        ppHapus.setEnabled(var.getpenjualan_obat());
+        if(var.getkode().equals("Admin Utama")){
+            ppHapus.setEnabled(true);
+        }else{
+            ppHapus.setEnabled(false);
+        }  
     }
 }

@@ -62,48 +62,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-import simrskhanza.DlgCariDokter;
-import simrskhanza.DlgCariDokter;
-import simrskhanza.DlgCariDokter;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgCariPoli;
-import simrskhanza.DlgHemodialisa;
-import simrskhanza.DlgHemodialisa;
-import simrskhanza.DlgHemodialisa;
-import simrskhanza.DlgKamarInap;
-import simrskhanza.DlgKamarInap;
-import simrskhanza.DlgKamarInap;
-import simrskhanza.DlgPasien;
-import simrskhanza.DlgPasien;
-import simrskhanza.DlgPasien;
-import simrskhanza.DlgPemberianObat;
-import simrskhanza.DlgPemberianObat;
-import simrskhanza.DlgPemberianObat;
-import simrskhanza.DlgPeriksaLaboratorium;
-import simrskhanza.DlgPeriksaLaboratorium;
-import simrskhanza.DlgPeriksaLaboratorium;
-import simrskhanza.DlgPeriksaRadiologi;
-import simrskhanza.DlgPeriksaRadiologi;
-import simrskhanza.DlgPeriksaRadiologi;
-import simrskhanza.DlgRawatJalan;
-import simrskhanza.DlgRawatJalan;
-import simrskhanza.DlgRawatJalan;
-import simrskhanza.DlgResepObat;
-import simrskhanza.DlgResepObat;
-import simrskhanza.DlgResepObat;
-import simrskhanza.DlgResumePerawatan;
-import simrskhanza.DlgResumePerawatan;
-import simrskhanza.DlgResumePerawatan;
-import simrskhanza.DlgRujuk;
-import simrskhanza.DlgRujuk;
-import simrskhanza.DlgRujuk;
-import simrskhanza.DlgRujukMasuk;
-import simrskhanza.DlgRujukMasuk;
-import simrskhanza.DlgRujukMasuk;
-import simrskhanza.DlgTagihanOperasi;
-import simrskhanza.DlgTagihanOperasi;
-import simrskhanza.DlgTagihanOperasi;
 /**
  *
  * @author dosen
@@ -165,7 +123,7 @@ public final class DlgReg extends javax.swing.JDialog {
         for (i = 0; i < 18; i++) {
             TableColumn column = tbPetugas.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(25);
+                column.setPreferredWidth(20);
             }else if(i==1){
                 column.setPreferredWidth(50);
             }else if(i==2){
@@ -515,7 +473,6 @@ public final class DlgReg extends javax.swing.JDialog {
         MnRujukMasuk = new javax.swing.JMenuItem();
         MnDiagnosa = new javax.swing.JMenuItem();
         MnHemodialisa = new javax.swing.JMenuItem();
-        MnResumePasien = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         MnLaporanRekapKunjunganPoli = new javax.swing.JMenuItem();
         MnLaporanRekapKunjunganDokter = new javax.swing.JMenuItem();
@@ -881,23 +838,6 @@ public final class DlgReg extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(MnHemodialisa);
-
-        MnResumePasien.setBackground(new java.awt.Color(255, 255, 255));
-        MnResumePasien.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnResumePasien.setForeground(new java.awt.Color(60, 80, 50));
-        MnResumePasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnResumePasien.setText("Resume Perawatan Pasien");
-        MnResumePasien.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MnResumePasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        MnResumePasien.setIconTextGap(5);
-        MnResumePasien.setName("MnResumePasien"); // NOI18N
-        MnResumePasien.setPreferredSize(new java.awt.Dimension(250, 28));
-        MnResumePasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnResumePasienActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(MnResumePasien);
 
         jMenu1.setBackground(new java.awt.Color(255, 255, 255));
         jMenu1.setForeground(new java.awt.Color(60, 80, 50));
@@ -1758,7 +1698,7 @@ public final class DlgReg extends javax.swing.JDialog {
 
         TglSakit1.setEditable(false);
         TglSakit1.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2016" }));
+        TglSakit1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-02-2017" }));
         TglSakit1.setDisplayFormat("dd-MM-yyyy");
         TglSakit1.setName("TglSakit1"); // NOI18N
         TglSakit1.setOpaque(false);
@@ -1806,7 +1746,7 @@ public final class DlgReg extends javax.swing.JDialog {
 
         TglSakit2.setEditable(false);
         TglSakit2.setForeground(new java.awt.Color(50, 70, 50));
-        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2016" }));
+        TglSakit2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-02-2017" }));
         TglSakit2.setDisplayFormat("dd-MM-yyyy");
         TglSakit2.setName("TglSakit2"); // NOI18N
         TglSakit2.setOpaque(false);
@@ -2259,7 +2199,7 @@ public final class DlgReg extends javax.swing.JDialog {
 
         DTPCari1.setEditable(false);
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2016" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-02-2017" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2274,7 +2214,7 @@ public final class DlgReg extends javax.swing.JDialog {
 
         DTPCari2.setEditable(false);
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2016" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-02-2017" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2416,7 +2356,7 @@ public final class DlgReg extends javax.swing.JDialog {
 
         DTPReg.setEditable(false);
         DTPReg.setForeground(new java.awt.Color(50, 70, 50));
-        DTPReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-12-2016" }));
+        DTPReg.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-02-2017" }));
         DTPReg.setDisplayFormat("dd-MM-yyyy");
         DTPReg.setName("DTPReg"); // NOI18N
         DTPReg.setOpaque(false);
@@ -2822,6 +2762,11 @@ public final class DlgReg extends javax.swing.JDialog {
             Valid.textKosong(TBiaya,"biaya regristrasi");
         }else if(kdpnj.getText().trim().equals("")||nmpnj.getText().trim().equals("")){
             Valid.textKosong(kdpnj,"Jenis Bayar");
+        }else if(Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien inner join reg_periksa inner join kamar_inap "+
+                 "on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.no_rawat=kamar_inap.no_rawat "+
+                 "where kamar_inap.stts_pulang='-' and pasien.no_rkm_medis=?",TNoRM.getText())>0){
+            JOptionPane.showMessageDialog(null,"Pasien sedang dalam masa perawatan di kamar inap..!!");
+            TNoRM.requestFocus();
         }else{            
             if(Sequel.menyimpantf2("reg_periksa","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",15,
                     new String[]{TNoReg.getText(),TNoRw.getText(),Valid.SetTgl(DTPReg.getSelectedItem()+""),CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
@@ -3394,26 +3339,6 @@ private void MnBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkInputActionPerformed
   isForm();                
 }//GEN-LAST:event_ChkInputActionPerformed
-
-private void MnResumePasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnResumePasienActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TNoReg.requestFocus();
-        }else if(TPasien.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
-            tbPetugas.requestFocus();
-        }else{
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            DlgResumePerawatan resume=new DlgResumePerawatan(null,false);
-            resume.setNoRm(TNoRM.getText()); 
-            resume.isPasien();
-            resume.tampil();
-            resume.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
-            resume.setLocationRelativeTo(internalFrame1);
-            resume.setVisible(true);
-            this.setCursor(Cursor.getDefaultCursor());
-        }
-}//GEN-LAST:event_MnResumePasienActionPerformed
 
 private void ppGrafikPerpoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppGrafikPerpoliActionPerformed
        tampil();
@@ -4611,7 +4536,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
             dlgki.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
             dlgki.setLocationRelativeTo(internalFrame1);
             dlgki.isCek();
-            dlgki.setNoRm(TNoRw.getText(),DTPReg.getDate(),"2. Rawat Jalan");   
+            dlgki.setNoRm(TNoRw.getText(),DTPReg.getDate(),"2. Rawat Jalan",kdpoli.getText(),TPoli.getText());   
             dlgki.tampil();
             dlgki.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
@@ -4718,7 +4643,6 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JMenuItem MnPeriksaRadiologi;
     private javax.swing.JMenuItem MnPersetujuanMedis;
     private javax.swing.JMenuItem MnRawatJalan;
-    private javax.swing.JMenuItem MnResumePasien;
     private javax.swing.JMenuItem MnRujuk;
     private javax.swing.JMenuItem MnRujukMasuk;
     private javax.swing.JMenuItem MnSEP;
@@ -5125,7 +5049,6 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnNoResep.setEnabled(var.getresep_obat());
         MnRujuk.setEnabled(var.getrujukan_keluar());
         MnRujukMasuk.setEnabled(var.getrujukan_masuk());
-        MnResumePasien.setEnabled(var.getresume_pasien());
         MnDiagnosa.setEnabled(var.getdiagnosa_pasien());
         MnHapusTagihanOperasi.setEnabled(var.getoperasi());
         MnHapusObatOperasi.setEnabled(var.getoperasi());  

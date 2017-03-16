@@ -19,7 +19,7 @@ public final class var {
     private static PreparedStatement ps,ps2;
     private static ResultSet rs,rs2;
     
-    private static String kode="",kdbangsal="",namars="",alamatrs="",kabupatenrs="",propinsirs="",kontakrs="",emailrs="",form=""; 
+    private static String kode="",kdbangsal="",namars="",alamatrs="",kabupatenrs="",propinsirs="",kontakrs="",emailrs="",form="",namauser=""; 
     private static int jml1=0,jml2=0,lebar=0,tinggi=0;
     private static boolean admin=false,user=false,vakum=false,aplikasi=false,penyakit=false,obat_penyakit=false,dokter=false,jadwal_praktek=false,petugas=false,pasien=false,registrasi=false,
             tindakan_ralan=false,kamar_inap=false,tindakan_ranap=false,operasi=false,rujukan_keluar=false,rujukan_masuk=false,beri_obat=false,
@@ -50,7 +50,8 @@ public final class var {
             harian_paket_bhp=false,bulanan_paket_bhp=false,piutang_pasien2=false,bpjs_referensi_faskes=false,bpjs_sep=false,pengambilan_utd=false,tarif_utd=false,
             pengambilan_utd2=false,utd_medis_rusak=false,pengambilan_penunjang_utd=false,pengambilan_penunjang_utd2=false,utd_penunjang_rusak=false,
             suplier_penunjang=false,utd_donor=false,bpjs_monitoring_klaim=false,utd_cekal_darah=false,utd_komponen_darah=false,utd_stok_darah=false,
-            utd_pemisahan_darah=false;
+            utd_pemisahan_darah=false,harian_kamar=false,rincian_piutang_pasien=false,keuntungan_beri_obat_nonpiutang=false,reklasifikasi_ralan=false,
+            reklasifikasi_ranap=false,utd_penyerahan_darah=false,hutang_obat=false,riwayat_obat_alkes_bhp=false;
     
     public static void setData(String user, String pass) {
        try {                
@@ -273,6 +274,14 @@ public final class var {
                         var.utd_komponen_darah=true;
                         var.utd_stok_darah=true;
                         var.utd_pemisahan_darah=true;
+                        var.harian_kamar=true;
+                        var.rincian_piutang_pasien=true;
+                        var.keuntungan_beri_obat_nonpiutang=true;
+                        var.reklasifikasi_ralan=true;
+                        var.reklasifikasi_ranap=true;
+                        var.utd_penyerahan_darah=true;
+                        var.hutang_obat=true;
+                        var.riwayat_obat_alkes_bhp=true;
                     }else if(rs.getRow()>=1){
                         var.kode="Admin Utama";
                         var.penyakit=true;
@@ -476,6 +485,14 @@ public final class var {
                         var.utd_komponen_darah=true;
                         var.utd_stok_darah=true;
                         var.utd_pemisahan_darah=true;
+                        var.harian_kamar=true;
+                        var.rincian_piutang_pasien=true;
+                        var.keuntungan_beri_obat_nonpiutang=true;
+                        var.reklasifikasi_ralan=true;
+                        var.reklasifikasi_ranap=true;
+                        var.utd_penyerahan_darah=true;
+                        var.hutang_obat=true;
+                        var.riwayat_obat_alkes_bhp=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -681,6 +698,14 @@ public final class var {
                         var.utd_komponen_darah=rs2.getBoolean("utd_komponen_darah");
                         var.utd_stok_darah=rs2.getBoolean("utd_stok_darah");
                         var.utd_pemisahan_darah=rs2.getBoolean("utd_pemisahan_darah");
+                        var.harian_kamar=rs2.getBoolean("harian_kamar");
+                        var.rincian_piutang_pasien=rs2.getBoolean("rincian_piutang_pasien");
+                        var.keuntungan_beri_obat_nonpiutang=rs2.getBoolean("keuntungan_beri_obat_nonpiutang");
+                        var.reklasifikasi_ralan=rs2.getBoolean("reklasifikasi_ralan");
+                        var.reklasifikasi_ranap=rs2.getBoolean("reklasifikasi_ranap");
+                        var.utd_penyerahan_darah=rs2.getBoolean("utd_penyerahan_darah");
+                        var.hutang_obat=rs2.getBoolean("hutang_obat");
+                        var.riwayat_obat_alkes_bhp=rs2.getBoolean("riwayat_obat_alkes_bhp");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         var.kode="";                  
                         var.penyakit= false;
@@ -884,6 +909,14 @@ public final class var {
                         var.utd_komponen_darah=false;
                         var.utd_stok_darah=false;
                         var.utd_pemisahan_darah=false;
+                        var.harian_kamar=false;
+                        var.rincian_piutang_pasien=false;
+                        var.keuntungan_beri_obat_nonpiutang=false;
+                        var.reklasifikasi_ralan=false;
+                        var.reklasifikasi_ranap=false;
+                        var.utd_penyerahan_darah=false;
+                        var.hutang_obat=false;
+                        var.riwayat_obat_alkes_bhp=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -1033,6 +1066,8 @@ public final class var {
     public static String getkdbangsal(){return var.kdbangsal;}     
     public static void setform(String form){var.form=form;}
     public static String getform(){return var.form;}   
+    public static void setnamauser(String namauser){var.namauser=namauser;}
+    public static String getnamauser(){return var.namauser;}   
     public static void setstatus(boolean status){var.status=status;}
     public static boolean getstatus(){return var.status;}
     public static boolean getjm_ranap_dokter(){return var.jm_ranap_dokter;}     
@@ -1129,4 +1164,12 @@ public final class var {
     public static boolean getutd_komponen_darah(){return var.utd_komponen_darah;}  
     public static boolean getutd_stok_darah(){return var.utd_stok_darah;}  
     public static boolean getutd_pemisahan_darah(){return var.utd_pemisahan_darah;}  
+    public static boolean getharian_kamar(){return var.harian_kamar;}  
+    public static boolean getrincian_piutang_pasien(){return var.rincian_piutang_pasien;}  
+    public static boolean getkeuntungan_beri_obat_nonpiutang(){return var.keuntungan_beri_obat_nonpiutang;}  
+    public static boolean getreklasifikasi_ralan(){return var.reklasifikasi_ralan;}  
+    public static boolean getreklasifikasi_ranap(){return var.reklasifikasi_ranap;}  
+    public static boolean getutd_penyerahan_darah(){return var.utd_penyerahan_darah;}  
+    public static boolean gethutang_obat(){return var.hutang_obat;}  
+    public static boolean getriwayat_obat_alkes_bhp(){return var.riwayat_obat_alkes_bhp;}
 }
